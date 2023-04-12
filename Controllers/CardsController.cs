@@ -46,7 +46,7 @@ namespace GoDisneyBlog.Controllers
             try
             {
                 var cards = await _repository.GetCard();
-                return Ok(_mapper.Map<IEnumerable<Card>, IEnumerable<CardViewModel>>(cards));
+                return Ok(_mapper.Map<IEnumerable<ICard>, IEnumerable<CardViewModel>>(cards));
             }
             catch (Exception ex)
             {
@@ -64,7 +64,7 @@ namespace GoDisneyBlog.Controllers
                 var card = await _repository.GetCardById(id);
                 if (card != null)
                 {
-                    return Ok(_mapper.Map<Card, CardViewModel>(card));
+                    return Ok(_mapper.Map<ICard, CardViewModel>(card));
                 }
                 else
                 {
@@ -88,7 +88,7 @@ namespace GoDisneyBlog.Controllers
                 var card = await _repository.GetCardByName(name);
                 if (card != null)
                 {
-                    return Ok(_mapper.Map<Card, CardViewModel>(card));
+                    return Ok(_mapper.Map<ICard, CardViewModel>(card));
                 }
                 else
                 {
@@ -114,7 +114,7 @@ namespace GoDisneyBlog.Controllers
                 var cards = await _repository.GetCardsByCat(category);
                 if (cards != null)
                 {
-                    return Ok(_mapper.Map<IEnumerable<Card>, IEnumerable<CardViewModel>>(cards));
+                    return Ok(_mapper.Map<IEnumerable<ICard>, IEnumerable<CardViewModel>>(cards));
                 }
                 else
                 {
@@ -138,7 +138,7 @@ namespace GoDisneyBlog.Controllers
                 var cards = await _repository.GetCardsLinkData(category);
                 if (cards != null)
                 {
-                    return Ok(_mapper.Map<IEnumerable<Card>, IEnumerable<CardViewModel>>(cards));
+                    return Ok(_mapper.Map<IEnumerable<ICard>, IEnumerable<CardViewModel>>(cards));
                 }
                 else
                 {
@@ -197,7 +197,7 @@ namespace GoDisneyBlog.Controllers
         public async Task<IActionResult> Post([FromBody] CardViewModel model)
         {
 
-            var newCard = _mapper.Map<CardViewModel, Card>(model);
+            var newCard = _mapper.Map<CardViewModel, ICard>(model);
             try
             {
 
@@ -205,7 +205,7 @@ namespace GoDisneyBlog.Controllers
                 if (await _repository.SaveAllAsync())
                 {
 
-                    return Created($"/api/cards/{newCard.Id}", _mapper.Map<Card, CardViewModel>(newCard));
+                    return Created($"/api/cards/{newCard.Id}", _mapper.Map<ICard, CardViewModel>(newCard));
                 }
             }
             catch (Exception ex)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoDisneyBlog.Data.Entities
 {
-    public class Card
+    public class Card: ICard
     {
         public int Id { get; set; }
         public string? Category { get; set; }
@@ -16,7 +16,7 @@ namespace GoDisneyBlog.Data.Entities
         public string? CardLink { get; set; }
         public string? CardLinkName { get; set; }
         public string? CardIcon { get; set; }
-        public ICollection<CardContent>? CardContents { get; set; }
+        public virtual ICollection<CardContent>? CardContents { get; set; }
         public StoreUser? User { get; set; }
     }
 }

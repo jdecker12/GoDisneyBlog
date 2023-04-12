@@ -117,7 +117,7 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.EnsureCreated();
 
     var seeder = services.GetService<GoDisneySeeder>();
-    await seeder!.SeedAsync();
+    await seeder!.SeedAsync();  
 }
 
 app.Use(async (context, next) =>

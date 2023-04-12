@@ -9,13 +9,13 @@ namespace GoDisneyBlog.Data
 {
     public interface IGoDisneyRepository
     {
-        Task<IEnumerable<Card>> GetCard();
-        Task<Card> GetCardById(int id);
+        Task<IEnumerable<ICard>> GetCard();
+        Task<ICard> GetCardById(int id);
         Task<bool> SaveAllAsync();
         void AddEntity(object model);
         void DeleteEntity(object model);
-        Task<Card> GetCardByName(string name);
-        Task<IEnumerable<Card>> GetCardsByCat(string cat);
-        Task<IEnumerable<Card>> GetCardsLinkData(string cat);
+        Task<ICard> GetCardByName(string name);
+        Task<IEnumerable<ICard>> GetCardsByCat(string cat);
+        Task<IEnumerable<ICard>> GetCardsLinkData(string cat);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace GoDisneyBlog.Data.Entities
         public string? ParaTwo { get; set; }
         public string? ParaThree { get; set; }
         public string? ParaFour { get; set; }
+
+        [ForeignKey("CardId")]
         public Card? Card { get; set; }
     }
 }

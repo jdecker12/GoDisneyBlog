@@ -29,7 +29,7 @@ namespace GoDisneyBlog.Data
             _context.Remove(model);
         }
 
-        public async Task<IEnumerable<Card>> GetCard()
+        public async Task<IEnumerable<ICard>> GetCard()
         {
             try
             {
@@ -44,7 +44,7 @@ namespace GoDisneyBlog.Data
             }
         }
 
-        public async Task<Card?> GetCardById(int id)
+        public async Task<ICard?> GetCardById(int id)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace GoDisneyBlog.Data
             }
         }
 
-        public async Task<Card?> GetCardByName(string name)
+        public async Task<ICard?> GetCardByName(string name)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace GoDisneyBlog.Data
             }
         }
 
-        public async Task<IEnumerable<Card>?> GetCardsByCat(string cat)
+        public async Task<IEnumerable<ICard>?> GetCardsByCat(string cat)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace GoDisneyBlog.Data
             }
         }
 
-        public async Task<IEnumerable<Card>> GetCardsLinkData(string cat)
+        public async Task<IEnumerable<ICard>> GetCardsLinkData(string cat)
         {
             try
             {
